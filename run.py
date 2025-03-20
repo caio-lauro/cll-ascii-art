@@ -44,9 +44,11 @@ def main():
         case _:
             print('Unsupported option, using original size.')
 
-    r, g, b, a = img.split()
+    out = img.split()
+    r, g, b = out[0], out[1], out[2]
     img = Image.merge('RGB', (r, g, b))
-    img = img.resize(size=(img.width // factor, img.height // factor))
+    if factor > 0:
+        img = img.resize(size=(img.width // factor, img.height // factor))
     img.save('./buffer.bmp')
 
     cmd = ['./main']
