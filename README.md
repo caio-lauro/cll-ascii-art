@@ -23,11 +23,11 @@ You can directly run `main` if you have a BMP image with a good resolution (usua
 
 ## Examples of ASCII Art Generated
 ### Original Image:
-![image](./images/me.jpg)
+![image](https://github.com/caio-lauro/cll-ascii-art/blob/main/examples/me.jpg?raw=true)
 ### ASCII Image:
-![image](./output/me-ascii.png)
+![image](https://github.com/caio-lauro/cll-ascii-art/blob/main/examples/me-ascii.png?raw=true)
 ### ASCII Colored Image:
-![image](./output/me.png)
+![image](https://github.com/caio-lauro/cll-ascii-art/blob/main/examples/me-ascii-colored.png?raw=true)
 
 ## Language choice for ASCII Art Generation
 I used C because I am already familiar with its structures and actually prefer it over other languages for reading binary files. I also recurred to this option to amplify my knowledge and understand better how the BMP file format works.
