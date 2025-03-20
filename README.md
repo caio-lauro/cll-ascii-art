@@ -12,12 +12,22 @@ To use this project, run:
 > make
 > python3 run.py [--color] INPUT_IMAGE OUTPUT_ASCII_TEXT OUTPUT_ASCII_IMAGE
 ```
+The `[--color]` is an optional argument that displays ASCII characters with color, that can be used either via `-c` or `--color`. If not used, the default is to not display color. \
+When using `run.py`, you can choose a new "resolution" for the input image. Notice that the output image will have a big resolution.
+
 One must run `make` to compile the project into the executable (main) and then use the python command to generate the image. \
 You can directly run `main` if you have a BMP image with a good resolution (usually less than 200px) with:
 ```
 > ./main [--color] PATH_TO_FILE
 ```
-The `[--color]` is an optional argument that displays ASCII characters with color, that can be used either via `-c` or `--color`. If not used, the default is to not display color.
+
+## Examples of ASCII Art Generated
+### Original Image:
+![image](./images/me.jpg)
+### ASCII Image:
+![image](./output/me-ascii.png)
+### ASCII Colored Image:
+![image](./output/me.png)
 
 ## Language choice for ASCII Art Generation
 I used C because I am already familiar with its structures and actually prefer it over other languages for reading binary files. I also recurred to this option to amplify my knowledge and understand better how the BMP file format works.
