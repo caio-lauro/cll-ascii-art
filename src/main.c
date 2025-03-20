@@ -73,6 +73,7 @@ int main(int argc, char *argv[]) {
     asciiMatrice[0] = calloc(height*width, sizeof(char));
     if (asciiMatrice[0] == NULL) {
         printf("Could not allocate matrice of ascii characters.\n");
+        free(asciiMatrice);
         free(image[0]);
         free(image);
         fclose(fin);
