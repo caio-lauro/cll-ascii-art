@@ -50,6 +50,7 @@ int main(int argc, char *argv[]) {
     image[0] = calloc(height*width, sizeof(RGBTRIPLE));
     if (image[0] == NULL) {
         printf("Could not allocate RGBTRIPLE matrice.\n");
+        free(image);
         fclose(fin);
         return EXIT_FAILURE;
     }
