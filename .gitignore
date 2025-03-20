@@ -2,3 +2,5 @@ build
 images
 txt
 main
+output
+__pycache__
