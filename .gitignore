@@ -3,4 +3,6 @@ images
 txt
 main
 output
+buffer.bmp
+video
 __pycache__
