@@ -13,6 +13,7 @@ def main():
 
     useColor = False
     font_size = 10
+    factor = None
     for opt, val in opts:
         if opt in ('-c', '--color'):
             useColor = True
@@ -28,7 +29,7 @@ def main():
             assert False, 'Option does not exist'
 
     if len(args) != 3:
-        print('Usage: python3 run.py [--color] INPUT_IMAGE OUTPUT_ASCII_TEXT OUTPUT_ASCII_IMAGE')
+        print('Usage: python3 run.py [--color --font-size=? --scaling-factor=?] INPUT_IMAGE OUTPUT_ASCII_TEXT OUTPUT_ASCII_IMAGE')
         exit(1)
 
     input_image = args[0]
@@ -36,9 +37,11 @@ def main():
     output_ascii_image = args[2]
 
     img = Image.open(input_image)
-    factor = 0
-    print('Choose an option for image scaling.\n1. Original Size\n2. Reduce to 200px\n3. Reduce to 100px\n4. Reduce to 50px')
-    match input('Option: '):
+    if factor == None:
+        print('Choose an option for image scaling.\n1. Original Size\n2. Reduce to 200px\n3. Reduce to 100px\n4. Reduce to 50px')
+        factor = input('Option: ')
+
+    match factor:
         case '1':
             factor = 0
         case '2':
@@ -48,6 +51,7 @@ def main():
         case '4':
             factor = round(max(img.height, img.width) / 50)
         case _:
+            factor = 0
             print('Unsupported option, using original size.')
 
     out = img.split()
