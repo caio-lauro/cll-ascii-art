@@ -10,31 +10,58 @@ Added `ASCII_to_image.py` to create image from ASCII text, and `run.py` to creat
 To run this project (with `run.py`) you will need:
 * Makefile (make)
 * GCC (gcc)
-* Python3
-* PIP
-* Pillow (PIL)
+* Python3 (for image generation)
+* PIP (for image generation)
+* Pillow (PIL, for image generation)
+* OpenCV (cv2, for video generation)
 To install all of the above, on a linux terminal, run:
 ```
 >   install make gcc python3 pip
->   pip install pillow
+>   pip install pillow opencv-python
 ```
 Note: install refer to the system's package manager.
 ## Usage
-To use this project, run:
+Compile the ASCII Art generator made in C:
 ```
-> make
-> python3 run.py [--color --font-size=? --scaling-factor=?] INPUT_IMAGE OUTPUT_ASCII_TEXT OUTPUT_ASCII_IMAGE
+>   make
 ```
+Then, you can use the following to generate ASCII Art on the terminal:
+```
+>   ./main [--color] PATH_TO_BMP_IMAGE
+```
+Or, use the following to generate ASCII Art Image:
+```
+>   python3 run.py [--color --font-size=? --scaling-factor=?] INPUT_IMAGE OUTPUT_ASCII_TEXT OUTPUT_ASCII_IMAGE
+```
+Finally, for ASCII Art Videos:
+```
+>   python3 video.py
+```
+
+## ASCII Art Image Generation
+To use `run.py` to generate images, you only need to have an input image.
+### Command-line Options
+This is a list of available command-line options when using `run.py`. \
 The `[--color]` is an optional argument that displays ASCII characters with color, that can be used either via `-c` or `--color`. If not used, the default is to not display color. \
-The `[--font-size=?]` is an optional argument that changes the font-size used in the output ASCII image, that can be used either via `-s ?` or `--font-size=?`. If not used, the default font-size is 10. \
+The `[--font-size=?]` is an optional argument that changes the font-size used in the output ASCII image, that can be used either via `-s ?` or `--font-size=?`. If not used, the default and recommended font-size is 10. \
 The `[--scaling-factor=?]` is an optional argument that changes the scaling-factor used in the input image, either mantaining the image's default size, or resizing to fix 200px, 100px or 50px (options 1, 2, 3, 4, respectively), that can be used either via `-f ?` or `--scaling-factor=?`. If not used, the user will be prompted to enter one via `input()`. \
 Notice that the output image will have a big resolution.
 
-One must run `make` to compile the project into the executable (main) and then use the python command to generate the image. \
-You can directly run `main` if you have a BMP image with a good resolution (usually less than 200px) with:
-```
-> ./main [--color] PATH_TO_FILE
-```
+## ASCII Art Video Generation
+For the Video generation, note that you must create a directory for the "project", that has the following:
+* A video file
+* A directory called 'images', where the video frames will be stored.
+* A directory called 'text', where the ASCII text will be stored.
+* A directory called 'output', where the ASCII images will be stored.
+### Prompted options
+Then, when the user executes the `video.py` script, they will be prompted to enter the following options:
+* A path to the project: the directory in which all of the above are contained (the relative or absolute address to it)
+* The video name which you would like to convert
+* A frame reduction integer: if *n* is the frame reduction, the program only renders every other *n* frames
+* A scaling factor for the images generated (see [--scaling-factor](#command-line-options))
+* A font size for the images generated (see [--font-size](#command-line-options))
+* A color usage option (y/N)
+
 
 ## Examples of ASCII Art Generated
 ### Original Image:
