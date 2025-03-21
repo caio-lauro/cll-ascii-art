@@ -6,6 +6,19 @@ While it is inspired by CS50x's Filter, I did not use any of its original code (
 Used BMP structure reference present in http://www.ue.eti.pg.gda.pl/fpgalab/zadania.spartan3/zad_vga_struktura_pliku_bmp_en.html \
 Added `ASCII_to_image.py` to create image from ASCII text, and `run.py` to create ASCII art from command line, and automatically use this ASCII art to create an image containing each character (with and without color).
 
+## Requirements
+To run this project (with `run.py`) you will need:
+* Makefile (make)
+* GCC (gcc)
+* Python3
+* PIP
+* Pillow (PIL)
+To install all of the above, on a linux terminal, run:
+```
+>   install make gcc python3 pip
+>   pip install pillow
+```
+Note: install refer to the system's package manager.
 ## Usage
 To use this project, run:
 ```
@@ -31,8 +44,13 @@ You can directly run `main` if you have a BMP image with a good resolution (usua
 ### ASCII Colored Image:
 ![image](https://github.com/caio-lauro/cll-ascii-art/blob/main/examples/me-ascii-colored.png?raw=true)
 
-## Language choice for ASCII Art Generation
+## Personal choices
+
+### Language choice for ASCII Art Generation (C)
 I used C because I am already familiar with its structures and actually prefer it over other languages for reading binary files. I also recurred to this option to amplify my knowledge and understand better how the BMP file format works.
 
-## Image format choice for ASCII Art Generation (BMP)
+### Image format choice for ASCII Art Generation (BMP)
 I used the BMP format solely for its lack of compression on most images on this format. Dealing with image compression is somewhat complicated for me still, but maybe in the future.
+
+### Language for running the application (Python)
+I used python for the sake of simplicity, although I would've liked to use C, it would be simply too hard to do everything that I wanted to do, that is, convert an image (almost any format), convert to ASCII (done in C) and then use the generated text to create an image containing each character (I don't even know how you could do it in the first place).
