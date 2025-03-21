@@ -6,7 +6,7 @@ from ascii_to_image import ascii_to_image
 
 def main():
     try:
-        opts, args = getopt(argv[1:], 'cs:', ['color', 'font-size='])
+        opts, args = getopt(argv[1:], 'cs:f:', ['color', 'font-size=', 'scaling-factor='])
     except Exception as e:
         print(e)
         exit(1)
@@ -17,7 +17,9 @@ def main():
         if opt in ('-c', '--color'):
             useColor = True
         elif opt in ('-s', '--font-size'):
-            font_size = val
+            font_size = int(val)
+        elif opt in ('-f', '--scaling-factor'):
+            factor = val if val in {'1','2','3','4'} else None
         else:
             assert False, 'Option does not exist'
 
