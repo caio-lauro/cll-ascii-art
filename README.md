@@ -10,10 +10,12 @@ Added `ASCII_to_image.py` to create image from ASCII text, and `run.py` to creat
 To use this project, run:
 ```
 > make
-> python3 run.py [--color] INPUT_IMAGE OUTPUT_ASCII_TEXT OUTPUT_ASCII_IMAGE
+> python3 run.py [--color --font-size=? --scaling-factor=?] INPUT_IMAGE OUTPUT_ASCII_TEXT OUTPUT_ASCII_IMAGE
 ```
 The `[--color]` is an optional argument that displays ASCII characters with color, that can be used either via `-c` or `--color`. If not used, the default is to not display color. \
-When using `run.py`, you can choose a new "resolution" for the input image. Notice that the output image will have a big resolution.
+The `[--font-size=?]` is an optional argument that changes the font-size used in the output ASCII image, that can be used either via `-s ?` or `--font-size=?`. If not used, the default font-size is 10. \
+The `[--scaling-factor=?]` is an optional argument that changes the scaling-factor used in the input image, either mantaining the image's default size, or resizing to fix 200px, 100px or 50px (options 1, 2, 3, 4, respectively), that can be used either via `-f ?` or `--scaling-factor=?`. If not used, the user will be prompted to enter one via `input()`. \
+Notice that the output image will have a big resolution.
 
 One must run `make` to compile the project into the executable (main) and then use the python command to generate the image. \
 You can directly run `main` if you have a BMP image with a good resolution (usually less than 200px) with:
