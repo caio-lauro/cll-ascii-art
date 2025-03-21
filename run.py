@@ -17,7 +17,11 @@ def main():
         if opt in ('-c', '--color'):
             useColor = True
         elif opt in ('-s', '--font-size'):
-            font_size = int(val)
+            try:
+                font_size = int(val)
+            except:
+                print('Font-size must be an integer value.\nUsing default font-size (10).')
+                font_size = 10
         elif opt in ('-f', '--scaling-factor'):
             factor = val if val in {'1','2','3','4'} else None
         else:
